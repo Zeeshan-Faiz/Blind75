@@ -19,5 +19,15 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 */
 
 public class Q121BestTimeToBuyAndSellStock {
-    
+
+    public int maxProfit(int[] prices) {
+        int minSoFar = prices[0];
+        int maxProfit = 0;
+        for (int i = 0; i < prices.length; i++) {
+            minSoFar = Math.min(minSoFar, prices[i]);
+            int profit = prices[i] - minSoFar;
+            maxProfit = Math.max(maxProfit, profit);
+        }
+        return maxProfit;
+    }
 }
