@@ -20,5 +20,17 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 */
 
 public class Q53MaximumSubarray {
-    
+
+    public int maxSubArray(int[] nums) {
+        int sum = 0;
+        int maxsum = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            maxsum = Math.max(sum, maxsum);
+            if (sum < 0) {
+                sum = 0;
+            }
+        }
+        return maxsum;
+    }
 }
