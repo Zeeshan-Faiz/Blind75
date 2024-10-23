@@ -22,5 +22,30 @@ Output: -1
 */
 
 public class Q33SearchInRotatedSortedArray {
-    
+
+    public int search(int[] arr, int key) {
+        
+        int low = 0, high = arr.length - 1, mid = 0;
+        while (low <= high) 
+        {
+            mid = (low + high) / 2;
+            if (key == arr[mid])
+                return mid;
+
+            else if (arr[low] <= arr[mid]) { // we are in left sorted array
+                if (key >= arr[low] && key < arr[mid])
+                    high = mid - 1;
+                else
+                    low = mid + 1;
+            }
+            else 
+            { // we are in right sorted array
+                if (key > arr[mid] && key <= arr[high])
+                    low = mid + 1;
+                else
+                    high = mid - 1;
+            }
+        }
+        return -1;
+    }
 }
