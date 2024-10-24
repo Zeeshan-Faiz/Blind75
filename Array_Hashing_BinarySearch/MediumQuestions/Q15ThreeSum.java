@@ -28,4 +28,45 @@ Explanation: The only possible triplet sums up to 0.
 
 public class Q15ThreeSum {
     
+    public List<List<Integer>> threeSum(int[] nums) {
+
+        List<List<Integer>> res = new ArrayList<>();
+        // Sort the array
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length; i++) 
+        {
+            // Skip duplicate elements for i
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            int j = i + 1;
+            int k = nums.length - 1;
+
+            while (j < k) 
+            {
+                int sum = nums[i] + nums[j] + nums[k];
+
+                if (sum > 0) {
+                    k--;
+                } 
+                else if (sum < 0) {
+                    j++;
+                } 
+                else 
+                {
+                    // Found a triplet with zero sum
+                    res.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    j++;
+
+                    // Skip duplicate elements for j
+                    while (nums[j] == nums[j - 1] && j < k) {
+                        j++;
+                    }
+                }
+            }
+        }
+        return res;
+    }
 }
