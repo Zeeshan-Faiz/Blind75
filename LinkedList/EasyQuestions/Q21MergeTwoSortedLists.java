@@ -1,7 +1,5 @@
 package LinkedList.EasyQuestions;
 
-import LinkedList.EasyQuestions.Q206ReverseLinkedList.ListNode;
-
 /*
 You are given the heads of two sorted linked lists list1 and list2.
 Merge the two lists into one sorted list. The list should be made by splicing together the nodes of 
@@ -44,5 +42,18 @@ public class Q21MergeTwoSortedLists {
         return head.next;//return actual head of sorted list
     }
 
-    
+    public class ListNode {
+        
+        int val;
+        ListNode next;
+        ListNode() {
+        }
+        ListNode(int val) {
+            this.val = val;
+        }
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
 }
