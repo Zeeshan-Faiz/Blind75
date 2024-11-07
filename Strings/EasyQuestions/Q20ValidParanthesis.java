@@ -1,5 +1,7 @@
 package Strings.EasyQuestions;
 
+import java.util.*;
+
 /*
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the 
 input string is valid.
@@ -28,4 +30,29 @@ Output: true
 
 public class Q20ValidParanthesis {
     
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char ch : s.toCharArray()) {
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.push(ch);
+            } else {
+                if (ch == ')') {
+                    if (stack.isEmpty() || stack.pop() != '(') {
+                        return false;
+                    }
+                }
+                if (ch == '}') {
+                    if (stack.isEmpty() || stack.pop() != '{') {
+                        return false;
+                    }
+                }
+                if (ch == ']') {
+                    if (stack.isEmpty() || stack.pop() != '[') {
+                        return false;
+                    }
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
 }
