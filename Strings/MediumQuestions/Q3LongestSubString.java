@@ -1,5 +1,7 @@
 package Strings.MediumQuestions;
 
+import java.util.*;
+
 /*
 Given a string s, find the length of the longest substring without repeating characters.
 
@@ -22,4 +24,17 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 public class Q3LongestSubString {
     
+    public int lengthOfLongestSubstring(String s) {
+        
+        Set<Character> set = new HashSet<>();
+        int max = 0;
+        int left = 0;
+        for (int right = 0; right < s.length(); right++) {
+            while(!set.add(s.charAt(right))) {
+                set.remove(s.charAt(left++));
+            }
+            max = Math.max(max, right - left + 1);
+        }
+        return max;
+    }
 }
