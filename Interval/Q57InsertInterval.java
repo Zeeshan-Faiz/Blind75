@@ -1,5 +1,7 @@
 package Interval;
 
+import java.util.*;
+
 /*
 You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi] 
 represent the start and the end of the ith interval and intervals is sorted in ascending order by 
@@ -23,4 +25,27 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 
 public class Q57InsertInterval {
     
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> mergedIntervals = new ArrayList<>();
+        int i = 0;
+
+        while (i < intervals.length && intervals[i][1] < newInterval[0]) {
+            mergedIntervals.add(intervals[i]);
+            i++;
+        }
+
+        while (i < intervals.length && intervals[i][0] <= newInterval[1]) {
+            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+            newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+            i++;
+        }
+
+        mergedIntervals.add(newInterval);
+        
+        while (i < intervals.length) {
+            mergedIntervals.add(intervals[i]);
+            i++;
+        }
+        return mergedIntervals.toArray(new int[mergedIntervals.size()][]);
+    }
 }
