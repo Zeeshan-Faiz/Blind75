@@ -21,5 +21,19 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 */
 
 public class Q198HouseRobber {
-    
+
+    public int rob(int[] nums) {
+        
+        int n = nums.length;
+        int m1 = nums[n - 1];
+        int m2 = 0;
+
+        for (int i = n - 2; i >= 0; i--) 
+        {
+            int tmp = Math.max(nums[i] + m2, m1);
+            m2 = m1;
+            m1 = tmp;
+        }
+        return m1;
+    }
 }
