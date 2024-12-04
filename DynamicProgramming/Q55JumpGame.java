@@ -15,5 +15,20 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 */
 
 public class Q55JumpGame {
-    
+
+    public boolean canJump(int[] nums) {
+        
+        // Initially the final position is the last index
+        int goal = nums.length - 1;
+
+        // Start with the second last index
+        for (int i = nums.length - 2; i >= 0; i--) {
+            // If you can reach the final position from this index update the goal
+            if (i + nums[i] >= goal) {
+                goal = i;
+            }
+        }
+        // If we reach the first index, then we can make the jump possible
+        return goal == 0;
+    }
 }
