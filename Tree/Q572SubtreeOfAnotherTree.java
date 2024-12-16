@@ -36,4 +36,24 @@ public class Q572SubtreeOfAnotherTree {
             return false;
         return isSame(root.left, subRoot.left) && isSame(root.right, subRoot.right);
     }
+
+    public class TreeNode {
+        
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }
