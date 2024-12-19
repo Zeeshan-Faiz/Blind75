@@ -27,6 +27,7 @@ public class Q98ValidateBST {
     }
 
     private boolean helper(TreeNode root, long minVal, long maxVal) {
+        
         if (root == null)
             return true;
         if (root.val >= maxVal || root.val <= minVal)
@@ -34,5 +35,25 @@ public class Q98ValidateBST {
 
         return helper(root.left, minVal, root.val) &&
                 helper(root.right, root.val, maxVal);
+    }
+
+    public class TreeNode {
+        
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }
