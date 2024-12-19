@@ -20,5 +20,19 @@ Explanation: The root node's value is 5 but its right child's value is 4.
 */
 
 public class Q98ValidateBST {
-    
+
+    public boolean isValidBST(TreeNode root) {
+
+        return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private boolean helper(TreeNode root, long minVal, long maxVal) {
+        if (root == null)
+            return true;
+        if (root.val >= maxVal || root.val <= minVal)
+            return false;
+
+        return helper(root.left, minVal, root.val) &&
+                helper(root.right, root.val, maxVal);
+    }
 }
