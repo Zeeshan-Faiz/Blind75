@@ -24,4 +24,26 @@ Output: 2
 
 public class Q235LowestCommonAncestor {
     
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+
+        if (root == null)
+            return null;
+        //node itself can be it's ancestor
+        if(root == p || root == q)
+            return root;
+
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        // if no answeer from Left, node's ancestor is coming from right
+        if (left == null)
+            return right;
+
+        // if no answer from right, node's ancestor is coming from left
+        else if (right == null)
+            return left;
+
+        // if nodes are in both left and right then the root is the ancestor
+        return root;
+    }
 }
