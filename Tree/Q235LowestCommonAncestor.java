@@ -46,4 +46,24 @@ public class Q235LowestCommonAncestor {
         // if nodes are in both left and right then the root is the ancestor
         return root;
     }
+
+    public class TreeNode {
+        
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }
