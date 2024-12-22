@@ -19,15 +19,18 @@ Explanation: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 
 */
 
 public class Q124BinaryTreeMaxPathSum {
-    
+
     int ans = Integer.MIN_VALUE;
+
     public int maxPathSum(TreeNode root) {
-        
+
         helper(root);
         return ans;
     }
+
     int helper(TreeNode node) {
-        if(node == null) {
+        
+        if (node == null) {
             return 0;
         }
 
@@ -42,5 +45,25 @@ public class Q124BinaryTreeMaxPathSum {
         ans = Math.max(ans, pathSum);
 
         return Math.max(left, right) + node.val;
+    }
+
+    public class TreeNode {
+        
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }
