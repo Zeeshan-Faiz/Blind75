@@ -12,7 +12,12 @@ not necessarily need to follow this format, so please be creative and come up wi
 approaches yourself.
 
 Example 1:
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
 
+Example 2:
+Input: root = []
+Output: []
 */
 
 public class Q297SerializeDeserializeBinaryTree {
