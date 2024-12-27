@@ -33,7 +33,7 @@ public class Q211DesignSearch {
     
     Object[] trie;
 
-    public WordDictionary() {
+    public Q211DesignSearch() {
         trie = new Object[27];
     }
 
