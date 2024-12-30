@@ -36,7 +36,7 @@ public class Q295FindMedianFromDataStream {
     int median;
     int medianCount2x;
 
-    public MedianFinder() {
+    public Q295FindMedianFromDataStream() {
         hashVals = new int[200001];
         median = Integer.MIN_VALUE;
         medianCount2x = 1;
