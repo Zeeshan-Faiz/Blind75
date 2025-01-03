@@ -1,5 +1,10 @@
 package Graphs;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.w3c.dom.Node;
+
 /*
 Given a reference of a node in a connected undirected graph.
 Return a deep copy (clone) of the graph.
@@ -41,4 +46,21 @@ Explanation: This an empty graph, it does not have any nodes.
 
 public class Q133CloneGraph {
     
+    public Node cloneGraph(Node node) {
+        if (node == null)
+            return null;
+        return dfs(node, new HashMap<>());
+    }
+
+    private Node dfs(Node node, Map<Integer, Node> visited) {
+        if (visited.containsKey(node.val))
+            return visited.get(node.val);
+        Node copyNode = new Node(node.val);
+        visited.putIfAbsent(node.val, copyNode);
+        for (Node neighbour : node.neighbors) {
+            Node neighbourCopyNode = dfs(neighbour, visited);
+            copyNode.neighbors.add(neighbourCopyNode);
+        }
+        return copyNode;
+    }
 }
